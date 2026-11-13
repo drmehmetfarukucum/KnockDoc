@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "revir-haberlesme",
+  "main": "src/worker.mjs",
+  "compatibility_date": "2026-10-05",
+  "send_metrics": false,
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "revir-haberlesme",
+    "database_id": "00000000-0000-0000-0000-000000000000"
+  }],
+  "vars": {
+    "DOCTOR_EMAIL": "hekim@ornek-kurum.example"
+  },
+  "secrets": {"required":["DOCTOR_KEY_HASH", "DOCTOR_KEY_PEPPER", "VAPID_PRIVATE_KEY", "VAPID_PUBLIC_KEY", "VAPID_SUBJECT"]},
+  "ratelimits": [
+    {"name":"PUBLIC_LIMIT", "namespace_id":"202610051", "simple":{"limit":120,"period":60}},
+    {"name":"SUBMIT_LIMIT", "namespace_id":"202610052", "simple":{"limit":20,"period":60}},
+    {"name":"SESSION_LIMIT", "namespace_id":"202610053", "simple":{"limit":20,"period":60}},
+    {"name":"LOGIN_LIMIT", "namespace_id":"202610054", "simple":{"limit":5,"period":60}},
+    {"name":"LOGIN_GLOBAL_LIMIT", "namespace_id":"202610055", "simple":{"limit":30,"period":60}},
+    {"name":"PUSH_LIMIT", "namespace_id":"202610056", "simple":{"limit":5,"period":60}}
+  ],
+  "triggers": {"crons": ["*/15 * * * *"]},
+  "observability": {"enabled":false}
+}

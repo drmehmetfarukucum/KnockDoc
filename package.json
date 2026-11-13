@@ -1,0 +1,19 @@
+{
+  "name": "revir-haberlesme-cloudflare",
+  "version": "1.5.7",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test src/auth.test.mjs test/*.test.mjs",
+    "dev": "wrangler dev --ip 127.0.0.1",
+    "build": "wrangler deploy --dry-run --outdir .wrangler/build",
+    "deploy": "node scripts/deploy.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0",
+    "miniflare": "5.20261001.0-alpha"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
