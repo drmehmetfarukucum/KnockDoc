@@ -70,11 +70,11 @@ Yayın adımları:
 1. `npx wrangler login`
 2. `npx wrangler d1 create revir-haberlesme --jurisdiction eu` komutunun verdiği kimliği `wrangler.jsonc` dosyasına yazın.
 3. `npx wrangler d1 execute revir-haberlesme --remote --file=./schema.sql`
-4. `node scripts/setup-doctor-key.mjs --ilk-kurulum` komutu hekim şifresini ve bildirim anahtarlarını oluşturur. Bu dosyalar depo klasörünün iki üst klasöründeki `work/` içinde oluşur. Onları paylaşmayın, Git'e eklemeyin ve güvenli bir yerde yedekleyin. Komutu yalnız ilk kurulumda bir kez çalıştırın: sonradan üretilen yeni bir anahtar hekim girişini ve telefon bildirimlerini geçersiz kılar.
+4. `node scripts/setup-doctor-key.mjs --ilk-kurulum` komutu hekim şifresini ve bildirim anahtarlarını oluşturur. Şifre ve anahtar dosyaları, depo klasörünün iki üst klasöründeki `work/` içinde oluşur. Onları paylaşmayın, Git'e eklemeyin ve güvenli bir yerde yedekleyin. Komutu yalnız ilk kurulumda bir kez çalıştırın: sonradan üretilen yeni bir anahtar hekim girişini ve telefon bildirimlerini geçersiz kılar.
 5. `npm run build` ile yayın paketini denetleyin, ardından `npm run deploy` ile yayımlayın.
 6. Hekim ekranı adresin sonuna `/doktor` eklenerek açılır. iPhone'da Safari'de **Paylaş → Ana Ekrana Ekle** yolunu izleyin, ana ekrandaki simgeden giriş yapın ve **Bildirimleri aç** düğmesine dokunun.
 
-`migrations/` klasörü eski kurulumların güncellenmesi içindir. Yeni bir kurulumda yalnız `schema.sql` kullanılır.
+`migrations/` klasörü eski kurulumları güncellemek içindir. Yeni bir kurulumda yalnız `schema.sql` kullanılır.
 
 ## Sınırlar
 
